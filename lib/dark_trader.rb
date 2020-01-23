@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 
 def find_URL
-page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/95"))
+page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
 return page
 end
 

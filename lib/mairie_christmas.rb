@@ -35,14 +35,11 @@ return townhall_emails_clean
 end
 
 def townhall_array_of_hashes(townhall_names,townhall_emails_clean)
-hash = Hash.new
-  townhall_names.each_with_index do |e, i|
-  hash[e] = townhall_emails_clean[i]
-  end
+townhall_hash = Hash[townhall_names.zip(townhall_emails_clean)]
+townhall_array_of_hashes = []
+  townhall_hash.each {|key,value| townhall_array_of_hashes << { key => value }}
+return townhall_array_of_hashes
+end 
 
-  email_array_of_hashes = []
-  hash.each {|k,v| email_array_of_hashes << {k => v}}
-  return email_array_of_hashes
-end
 
 puts townhall_array_of_hashes(get_townhall_names(find_links(find_URLs)),get_townhall_emails(get_townhall_urls(find_links(find_URLs),find_URLs)))
